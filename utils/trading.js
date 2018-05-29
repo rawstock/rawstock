@@ -172,6 +172,7 @@ async function getExcel(url) {
     fs.writeFileSync(tempFilePath, buffer)
     // console.log('tempFilePath', tempFilePath)
     const result = excelParser.parseXls2Json(tempFilePath);
+    fs.unlinkSync(tempFilePath);
     // console.log('getExcel result', result)
     return Promise.resolve(result)
   }
