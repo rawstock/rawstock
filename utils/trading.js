@@ -22,7 +22,7 @@ async function get(url) {
  * @param {int} page 页码
  */
 async function parsingDayPriceJson(types, page = 1) {
-  console.log('page', page)
+  // console.log('page', page)
   const url = CONS.SINA_DAY_PRICE_URL(
     CONS.P_TYPE.http,
     CONS.DOMAINS.vsf,

@@ -24,7 +24,6 @@
   "homepage": "https://github.com/rawstock/rawstock#readme",
   "dependencies": {
     "convert-excel-to-json": "^1.3.0",
-    "excel-parser": "^0.2.2",
     "iconv-lite": "^0.4.23",
     "json5": "^1.0.1",
     "moment": "^2.22.1",

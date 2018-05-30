@@ -1276,6 +1276,7 @@ module.exports = {
   LIVE_DATA_URL,
   DAY_PRICE_MIN_URL,
   SINA_DAY_PRICE_URL,
+  BAIDU_K_DATA_URL,
   REPORT_URL,
   FORECAST_URL,
   PROFIT_URL,
@@ -1368,6 +1369,5 @@ module.exports = {
   X_PORT,
   codeToSymbol,
   codeToSymbolDgt,
-  ttDates,
-  BAIDU_K_DATA_URL
+  ttDates
 };

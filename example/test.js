@@ -34,8 +34,8 @@ async function main () {
     // const result = await trading.getTickData({ code: '600048', date:'2018-05-29', src: 'nt' })
     
     // 4 百度股票日线数据
-    const result = await trading.getKDataFromBaidu({ code: '600048', count: 20 })
-    console.log(result.mashData[0])
+    // const result = await trading.getKDataFromBaidu({ code: '600048', count: 20 })
+    // console.log(result.mashData[0])
   } catch (err) {
     console.error(err)
   }
