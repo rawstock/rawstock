@@ -4,7 +4,8 @@
   "description": "The most useful Finance data interface.",
   "main": "index.js",
   "scripts": {
-    "test": "node index"
+    "test": "node example/test.js",
+    "baidu": "node example/baiduKData.js"
   },
   "repository": {
     "type": "git",

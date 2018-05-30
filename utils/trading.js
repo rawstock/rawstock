@@ -206,7 +206,7 @@ async function getTickData(params) {
   } else {
     const result = await get(url[src])
     const csv = iconv.decode(result, "GBK")
-    console.log('csv', url[src], csv)
+    // console.log('csv', url[src], csv)
     const data = await neatCsv(csv, { separator: '\t'})
     return data
   }
@@ -224,7 +224,7 @@ async function getKDataFromBaidu(params) {
   const symbol = index ? CONS.INDEX_SYMBOL[code] : CONS.codeToSymbol(code);
   const url = CONS.BAIDU_K_DATA_URL(CONS.P_TYPE['https'],
     symbol, count, fq, +(new Date()))
-  console.log('url', url)
+  // console.log('url', url)
   const result = await get(url)
   return JSON5.parse(result.toString('utf8'))
 }
