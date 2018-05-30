@@ -212,8 +212,26 @@ async function getTickData(params) {
   }
 }
 
+/**
+ * 百度股票日线数据
+ * @param {string} code 股票完整代码，如sz300162
+ * @param {int} count 距离今天多少天的数据
+ * @param {string} fq 复权：front为前复权，no为不复权
+ * @param {boolean} index 指数标志，true代表是指数，默认false
+ */
+async function getKDataFromBaidu(params) {
+  const { code, count = 160, fq = 'front', index = false } = params
+  const symbol = index ? CONS.INDEX_SYMBOL[code] : CONS.codeToSymbol(code);
+  const url = CONS.BAIDU_K_DATA_URL(CONS.P_TYPE['https'],
+    symbol, count, fq, +(new Date()))
+  console.log('url', url)
+  const result = await get(url)
+  return JSON5.parse(result.toString('utf8'))
+}
+
 module.exports = {
   getTodayAll,
   getKData,
-  getTickData
+  getTickData,
+  getKDataFromBaidu
 };

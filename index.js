@@ -30,8 +30,11 @@ async function main () {
     // 获取个股以往交易历史的分笔数据明细，通过分析分笔数据，可以大致判断资金的进出情况。
     // 在使用过程中，对于获取股票某一阶段的历史分笔数据，需要通过参入交易日参数并append到一个DataFrame或者直接append到本地同一个文件里。
     // 历史分笔接口只能获取当前交易日之前的数据，当日分笔历史数据请调用get_today_ticks()接口或者在当日18点后通过本接口获取。
-    const result = await trading.getTickData({ code: '600048', date:'2018-05-29', src: 'nt' })
-    console.log(result)
+    // const result = await trading.getTickData({ code: '600048', date:'2018-05-29', src: 'nt' })
+    
+    // 4 百度股票日线数据
+    const result = await trading.getKDataFromBaidu({ code: '600048', count: 20 })
+    console.log(result.mashData[0])
   } catch (err) {
     console.error(err)
   }

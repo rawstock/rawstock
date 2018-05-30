@@ -27,7 +27,7 @@ const INDEX_LIST = {
   zx300: "sz399008",
   zh500: "sh000905"
 };
-const P_TYPE = { http: "http://", ftp: "ftp://" };
+const P_TYPE = { https: "https://", http: "http://", ftp: "ftp://" };
 const PAGE_NUM = [40, 60, 80, 100];
 const BASE_FORMATE = (x, num) => new Number(x).toFixed(num);
 const FORMAT = x => BASE_FORMATE(x, 2);
@@ -296,7 +296,9 @@ const LIVE_DATA_URL = "%shq.%s/rn=%s&list=%s";
 const DAY_PRICE_MIN_URL = "%sapi.finance.%s/akmin?scode=%s&type=%s";
 const SINA_DAY_PRICE_URL = (protocol, domain, page, node, pageNum) =>
   `${protocol}${domain}/quotes_service/api/${page}/Market_Center.getHQNodeData?num=80&sort=code&asc=0&node=${node}&symbol=&_s_r_a=page&page=${pageNum}`;
-const REPORT_URL =
+const BAIDU_K_DATA_URL = (protocol, symbol, count, fq, rand) =>
+  `${protocol}gupiao.baidu.com/api/stocks/stockdaybar?from=pc&os_ver=1&cuid=xxx&vv=100&format=json&stock_code=${symbol}&step=3&start=&count=${count}&fq_type=${fq}&timestamp=${rand}`
+  const REPORT_URL =
   "%s%s/q/go.php/vFinanceAnalyze/kind/mainindex/%s?s_i=&s_a=&s_c=&reportdate=%s&quarter=%s&p=%s&num=%s";
 const FORECAST_URL =
   "%s%s/q/go.php/vFinanceAnalyze/kind/performance/%s?s_i=&s_a=&s_c=&s_type=&reportdate=%s&quarter=%s&p=%s&num=%s";
@@ -1366,5 +1368,6 @@ module.exports = {
   X_PORT,
   codeToSymbol,
   codeToSymbolDgt,
-  ttDates
+  ttDates,
+  BAIDU_K_DATA_URL
 };
