@@ -1,21 +1,12 @@
 const CONS = require("./constants");
-const request = require('request-promise')
+const common = require('./common');
 const iconv = require("iconv-lite");
 const JSON5 = require("json5");
 const moment = require("moment");
-// const excelToJson = require('convert-excel-to-json');
-const excelParser = require('simple-excel-to-json');
 const neatCsv = require('neat-csv');
-const path = require('path')
-const fs = require('fs')
 
-/**
- * get请求
- * @param {string} url 请求地址
- */
-async function get(url) {
-  return await request.get(url, { encoding: null })
-}
+const { get, getExcel } = common
+
 /**
  * 处理当日行情分页数据，格式为json
  * @param {string} types 股票类型
@@ -158,25 +149,6 @@ async function getKData(params) {
     arr = arr.concat(r)
   })
   return arr
-}
-
-/**
- * 获取Excel链接内容并转化为json
- * @param {string} url 链接
- */
-async function getExcel(url) {
-  const buffer = await get(url)
-  // console.log('getExcel', url, buffer)
-  if (buffer) {
-    const tempFilePath = path.join(__dirname, "./temp.xls")
-    fs.writeFileSync(tempFilePath, buffer)
-    // console.log('tempFilePath', tempFilePath)
-    const result = excelParser.parseXls2Json(tempFilePath);
-    fs.unlinkSync(tempFilePath);
-    // console.log('getExcel result', result)
-    return Promise.resolve(result)
-  }
-  return Promise.resolve(null)
 }
 
 /**

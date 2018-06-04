@@ -321,7 +321,8 @@ const SHIBOR_TYPE = {
 };
 const SHIBOR_DATA_URL =
   "%s%s/shibor/web/html/%s?nameNew=Historical_%s_Data_%s.xls&downLoadPath=data&nameOld=%s%s.xls&shiborSrc=http://www.shibor.org/shibor/";
-const ALL_STOCK_BASICS_FILE =
+const ALL_STOCK_BASICS_FILE = (datepre, date) =>
+  `${P_TYPE["http"]}${DOMAINS["oss"]}/tsdata/${datepre}all${date}.csv`
   P_TYPE["http"] + DOMAINS["oss"] + "/tsdata/%sall%s.csv";
 const ALL_DAY_FILE = P_TYPE["http"] + DOMAINS["oss"] + "/tsdata/h/%s%s.csv";
 const ALL_CAL_FILE =
